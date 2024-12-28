@@ -184,57 +184,57 @@ void  SevenSegmentFun::bombTimer(uint8_t hours, uint8_t min, uint16_t speed, cha
   blink();
 };
 
-void  SevenSegmentFun::bouncingBall(uint16_t moves, uint16_t d, bool runForever) {
+// void  SevenSegmentFun::bouncingBall(uint16_t moves, uint16_t d, bool runForever) {
 
-  int8_t wallRight  = TM1637_MAX_COLOM - 1;
-  int8_t wallBottom = TM1637_MAX_LINES;
+//   int8_t wallRight  = TM1637_MAX_COLOM - 1;
+//   int8_t wallBottom = TM1637_MAX_LINES;
 
-  // start at top left
-  int8_t x = 0; int8_t y = 0;
-  int8_t newX; int8_t newY;
-  // default speed is 1 x right and 2 y down
-  int8_t vx = 1; int8_t vy = 1;
-  bool flipVx = false; bool flipVy = false;
+//   // start at top left
+//   int8_t x = 0; int8_t y = 0;
+//   int8_t newX; int8_t newY;
+//   // default speed is 1 x right and 2 y down
+//   int8_t vx = 1; int8_t vy = 1;
+//   bool flipVx = false; bool flipVy = false;
 
-  // print initial state
-  printBall(x, y);
+//   // print initial state
+//   printBall(x, y);
 
-  for ( ; moves != 0; moves--) {
+//   for ( ; moves != 0; moves--) {
 
-    newX = x + vx;
-    newY = y + vy;
+//     newX = x + vx;
+//     newY = y + vy;
 
-    // check if ball has hit the wall
-    if (newX > wallRight || newX < 0 ) {
-      vx = vx * -1;
-      newX = x + vx;
-      // random flip other direction as well
-      flipVy = (random(3) == 1);
-    };
+//     // check if ball has hit the wall
+//     if (newX > wallRight || newX < 0 ) {
+//       vx = vx * -1;
+//       newX = x + vx;
+//       // random flip other direction as well
+//       flipVy = (random(3) == 1);
+//     };
 
-    if ( newY > wallBottom || newY < 0) {
-      vy = vy * -1;
-      newY = y + vy;
-      // random flip other direction as well
-      flipVx = (random(3) == 1);
-    };
+//     if ( newY > wallBottom || newY < 0) {
+//       vy = vy * -1;
+//       newY = y + vy;
+//       // random flip other direction as well
+//       flipVx = (random(3) == 1);
+//     };
 
-    if ( flipVy ) {
-      newY = y;
-    } else if ( flipVx ) {
-      newX = x;
-    };
-    // set new coordinates
-    x = newX; y = newY;
+//     if ( flipVy ) {
+//       newY = y;
+//     } else if ( flipVx ) {
+//       newX = x;
+//     };
+//     // set new coordinates
+//     x = newX; y = newY;
 
-    printBall(x, y);
-    delay(d);
+//     printBall(x, y);
+//     delay(d);
 
-    if (runForever) {
-      moves++;
-    };
-  };
-}
+//     if (runForever) {
+//       moves++;
+//     };
+//   };
+// }
 
 void SevenSegmentFun::printBall( const int8_t x, const int8_t y ) {
   // uint8_t buffer[4] = {0,0,0,0};
